@@ -1,1 +1,1 @@
-# project_2
+# Hogar Bazaar
