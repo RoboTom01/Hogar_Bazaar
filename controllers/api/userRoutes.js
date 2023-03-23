@@ -1,35 +1,58 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
-router.post('/login', async (req, res) => {
+router.get( async (req, res) => {
   try {
-    const userData = await User.findOne({ where: { email: req.body.email } });
+    const userData = await User.findAll();
 
-    if (!userData) {
-      res
-        .status(400)
-        .json({ message: 'Incorrect email or password, please try again' });
-      return;
-    }
+    return res.json(userData)
 
-    const validPassword = await userData.checkPassword(req.body.password);
+    // if (!userData) {
+    //   res
+    //     .status(400)
+    //     .json({ message: 'Incorrect email or password, please try again' });
+    //   return;
+    // }
 
-    if (!validPassword) {
-      res
-        .status(400)
-        .json({ message: 'Incorrect email or password, please try again' });
-      return;
-    }
+    // const validPassword = await userData.checkPassword(req.body.password);
 
-    req.session.save(() => {
-      req.session.user_id = userData.id;
-      req.session.logged_in = true;
+    // if (!validPassword) {
+    //   res
+    //     .status(400)
+    //     .json({ message: 'Incorrect email or password, please try again' });
+    //   return;
+    // }
+
+    // req.session.save(() => {
+    //   req.session.user_id = userData.id;
+    //   req.session.logged_in = true;
       
-      res.json({ user: userData, message: 'You are now logged in!' });
-    });
+    //   res.json({ user: userData, message: 'You are now logged in!' });
+    // });
 
   } catch (err) {
     res.status(400).json(err);
+  }
+});
+
+router.post('/', async (req, res) => {
+  try {
+    console.log(req.body)
+    const dbUserData = await User.create({
+      username: req.body.username,
+      email: req.body.email,
+      password: req.body.password,
+    });
+
+    return res.json(dbUserData)
+  //   req.session.save(() => {
+  //     req.session.loggedIn = true;
+
+  //     res.status(200).json(dbUserData);
+  //   });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
   }
 });
 

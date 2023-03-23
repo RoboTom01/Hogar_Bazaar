@@ -1,3 +1,6 @@
+const router = require('express').Router();
+const { User } = require('../../models');
+
 const loginFormHandler = async (event) => {
   event.preventDefault();
 
@@ -27,9 +30,14 @@ const signupFormHandler = async (event) => {
   const password = document.querySelector('#password-signup').value.trim();
 
   if (username && email && password) {
+    const newUser = {
+      username:username,
+      email:email,
+      password:password
+    } 
     const response = await fetch('/api/users', {
       method: 'POST',
-      body: JSON.stringify({ username, email, password }),
+      body: JSON.stringify(newUser),
       headers: { 'Content-Type': 'application/json' },
     });
 
