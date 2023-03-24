@@ -9,14 +9,6 @@ const loginFormHandler = async (event) => {
   const password = document.querySelector('#password-login').value.trim();
 
   if (email && password) {
-
-    // const loggingUser = await User.findOne({ where : {email : req.body.email}});
-    // const password_valid = await bcrypt.compare(req.body.password,User.password);
-    // if(password_valid){
-
-    // }
-    
-    
     const response = await fetch('/api/users/login', {
       method: 'POST',
       body: JSON.stringify({ email, password }),
