@@ -1,0 +1,13 @@
+body {
+    background: linear-gradient(to right, #B07156, #695958);
+    }
+
+    h2{
+        margin-top: 50px;
+        
+    }
+
+   .line1{
+        height: 20px;
+        background: linear-gradient(to right, #B07156, #695958);
+   }
