@@ -46,12 +46,39 @@ router.post('/', async (req, res) => {
 
     return res.json(dbUserData)
   //   req.session.save(() => {
-  //     req.session.loggedIn = true;
+  //     req.session.logged_in = true;
 
   //     res.status(200).json(dbUserData);
   //   });
   } catch (err) {
     console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+router.post("/login", async (req, res) => {
+  try {
+    const user = await User.findOne({
+      where: {
+        email: req.body.email,
+      },
+    });
+    if (!user) {
+      res.status(400).json({ message: "Incorrect login credentials" });
+      return;
+    }
+    const validPassword = user.checkPassword(req.body.password);
+    if (!validPassword) {
+      res.status(400).json({ message: "Incorrect login credentials" });
+      return;
+    }
+    req.session.save(() => {
+      req.session.userId = user.id;
+      req.session.username = user.username;
+      req.session.logged_in = true;
+      res.status(200).json({ message: "You are now logged in" });
+    });
+  } catch (err) {
     res.status(500).json(err);
   }
 });
