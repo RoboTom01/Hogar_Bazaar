@@ -1,5 +1,6 @@
 // const router = require('express').Router();
-const { User } = require('../../models');
+// const { User } = require('../../models');
+// const bcrypt = require('bcrypt');
 
 const loginFormHandler = async (event) => {
   event.preventDefault();
@@ -8,6 +9,14 @@ const loginFormHandler = async (event) => {
   const password = document.querySelector('#password-login').value.trim();
 
   if (email && password) {
+
+    // const loggingUser = await User.findOne({ where : {email : req.body.email}});
+    // const password_valid = await bcrypt.compare(req.body.password,User.password);
+    // if(password_valid){
+
+    // }
+    
+    
     const response = await fetch('/api/users/login', {
       method: 'POST',
       body: JSON.stringify({ email, password }),
@@ -18,16 +27,20 @@ const loginFormHandler = async (event) => {
       document.location.replace('/');
     } else {
       alert('Failed to log in');
-    }
+    } 
   }
 };
 
 const signupFormHandler = async (event) => {
   event.preventDefault();
 
+  console.log("signup started")
+
   const username = document.querySelector('#username-signup').value.trim();
   const email = document.querySelector('#email-signup').value.trim();
   const password = document.querySelector('#password-signup').value.trim();
+
+  console.log(username, email, password)
 
   if (username && email && password) {
     const newUser = {
