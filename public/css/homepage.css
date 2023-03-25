@@ -18,6 +18,8 @@ h2{
 .logoutbtn{
     width: 100%;
     background-color: #F3DFA2;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
 
 .navbar{
@@ -50,8 +52,14 @@ li a {
   letter-spacing: 1px;
 }
 
+
+
 .active:hover {
   color: #fff;
+}
+
+.categories{
+    /* margin-left: 150px; */
 }
 
 
