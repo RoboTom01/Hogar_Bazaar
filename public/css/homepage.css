@@ -11,6 +11,14 @@ h2{
     margin-top: 5%;
 }
 
+.logoutbtn:hover{
+    background-color: #efcf6e;
+}
+
+.logoutbtn{
+    width: 100%;
+    background-color: #F3DFA2;
+}
 
 .navbar{
     position: relative;
