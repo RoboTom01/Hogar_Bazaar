@@ -11,3 +11,8 @@ body {
         height: 20px;
         background: linear-gradient(to right, #B07156, #695958);
    }
+
+   .container{
+    font-family: verdana;
+    font-weight: lighter;
+   }

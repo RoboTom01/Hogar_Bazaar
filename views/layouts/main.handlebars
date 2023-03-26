@@ -6,17 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>User Registry</title>
   <link rel="stylesheet" href="/css/jass.css">
-  <link rel="stylesheet" href="/css/login.css">
-  <link rel="stylesheet" href="/css/homepage.css">
+  <link rel="stylesheet" href="/css/{{style}}">
 </head>
-<header style="font-size: 70px; text-align: center;">ℍ𝕠𝕘𝕒𝕣 𝔹𝕒𝕫𝕒𝕒𝕣</header>
+<header style="font-size: 70px; text-align: center; color:#c64444c2;">ℍ𝕠𝕘𝕒𝕣 𝔹𝕒𝕫𝕒𝕒𝕣</header>
 
 <body>
   <header class="display-flex justify-space-between align-center p-2">
     {{#if logged_in}}
-    <nav>
+    {{!-- <nav>
       <button class="btn" id="logout">logout</button>
-    </nav>
+    </nav> --}}
     {{/if}}
   </header>
   <main class="container container-fluid mt-5">
