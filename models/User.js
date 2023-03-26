@@ -35,6 +35,13 @@ User.init(
         len: [8],
       },
     },
+    phone: {
+      type: DataTypes.STRING,
+      validate: {
+        isNumeric: true,
+        min: 6,
+      },
+    },
   },
   {
     hooks: {
