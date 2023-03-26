@@ -31,6 +31,7 @@ const signupFormHandler = async (event) => {
   const username = document.querySelector('#username-signup').value.trim();
   const email = document.querySelector('#email-signup').value.trim();
   const password = document.querySelector('#password-signup').value.trim();
+  const phone = document.querySelector('#phone-signup').value.trim();
 
   console.log(username, email, password)
 
@@ -38,7 +39,8 @@ const signupFormHandler = async (event) => {
     const newUser = {
       username:username,
       email:email,
-      password:password
+      password:password,
+      phone:phone,
     } 
     const response = await fetch('/api/users', {
       method: 'POST',
