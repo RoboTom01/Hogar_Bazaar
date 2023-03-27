@@ -64,7 +64,7 @@ router.post("/login", async (req, res) => {
         email: req.body.email,
       },
     });
-    if (!user) {
+    if (user === null) {
       res.status(400).json({ message: "Incorrect login credentials" });
       return;
     }

@@ -33,10 +33,6 @@ const init = async () => {
   app.use(express.urlencoded({ extended: true }));
   app.use(express.static(path.join(__dirname, 'public')));
 
-  // const { User } = require('./models');
-  // User.truncate()
-  // User.createExample()
-
   app.use(routes);
 
   sequelize.sync({ force: true }).then(() => {
