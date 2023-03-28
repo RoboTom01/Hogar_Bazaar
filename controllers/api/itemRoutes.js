@@ -1,14 +1,21 @@
-const router = require("express").Router();
-const { Item } = require("../../models");
+const router = require('express').Router();
+const { Store } = require('express-session');
+const { Item } = require('../../models');
 
-router.get("/", async (req, res) => {
-  try {
-    const dbPostData = await Item.findAll({});
-    res.status(200).json(dbPostData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+
+router.get('/', async (req, res) => {
+    try {
+        console.log(req.session.id);
+        console.log(req.session.userId);
+        console.log(req.session.username);
+        console.log(req.session);
+        const dbPostData = await Item.findAll({})
+        res.status(200).json(dbPostData)
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err)
+    }
+})
 
 router.get("/:id", async (req, res) => {
   try {
