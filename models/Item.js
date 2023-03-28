@@ -35,10 +35,10 @@ Item.init(
             allowNull: false,
             defaultValue: DataTypes.NOW,
         },
-        // picture_url: {
-        //     type: DataTypes.STRING,
-        //     allowNull: false,
-        // },
+        picture_url: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
     },
     {
         sequelize,
