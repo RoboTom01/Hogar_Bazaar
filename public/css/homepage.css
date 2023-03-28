@@ -25,7 +25,7 @@ h2 {
 
 .navbar{
     position: relative;
-    margin-top: 10px;
+    margin-top: 10px;}
 
 
 .nav-type{
@@ -99,7 +99,7 @@ li a {
 }
 
 .column {
-    width: 25%;
+    width: 33%;
     height: auto;
     padding: 10px 10px;
   }
