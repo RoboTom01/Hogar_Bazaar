@@ -22,15 +22,23 @@ Item.init(
             type: DataTypes.FLOAT,
             allowNull: false,
         },
+        sale_price: {
+            type: DataTypes.FLOAT,
+            allowNull: true,
+        },
+        sale_end: {
+            type: DataTypes.DATE,
+            allowNull: true,
+        },
         created_at: {
             type: DataTypes.DATE,
             allowNull: false,
             defaultValue: DataTypes.NOW,
         },
-        // picture_url: {
-        //     type: DataTypes.STRING,
-        //     allowNull: false,
-        // },
+        picture_url: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
     },
     {
         sequelize,

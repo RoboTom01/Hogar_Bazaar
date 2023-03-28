@@ -1,11 +1,16 @@
-const router = require("express").Router();
-// const { User } = require('../models');
-const withAuth = require("../utils/auth");
+
+const router = require('express').Router();
+const withAuth = require('../utils/auth');
+const { Category } = require('../models');
+
 
 router.get("/", withAuth, async (req, res) => {
   try {
+    const categoryData = await Category.findAll();
+    const categories = categoryData.map((itemCategory) => itemCategory.get({ plain: true }));
     res.render("homepage", {
       logged_in: req.session.logged_in,
+      categories: categories,
       style: "homepage.css",
     });
   } catch (err) {
