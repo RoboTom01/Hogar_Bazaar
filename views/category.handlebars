@@ -1,0 +1,16 @@
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+<div class="row">
+    <div class="column text-center">
+      <h1>{{category.name}}</h1>
+    </div>
+</div>
+
+<div class="row">
+  {{#each items as |item|}}
+  <div class="column">
+    <h2>{{item.name}}</h2>
+    <div class="card" style="background-image: url({{item.picture_url}});"></div>
+    <h2>${{item.price}}</h2>
+  </div>
+  {{/each}}
+</div>
