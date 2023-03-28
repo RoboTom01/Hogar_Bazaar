@@ -22,12 +22,16 @@ h2 {
   border-bottom-right-radius: 20px;
 }
 
-.navbar {
-  position: relative;
-  margin-top: 10px;
 
+.navbar{
+    position: relative;
+    margin-top: 10px;}
+
+
+.nav-type{
+  display: flex;
+  justify-content: space-evenly;
 }
-
 
 ul {
   position: static;
@@ -53,65 +57,66 @@ li a {
 }
 
 
-
 .active:hover {
   color: #fff;
 }
 
-.categories {
-  /* margin-left: 150px; */
-}
-
-
 .dropbtn {
-  color: white;
-}
+    color: white;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+    justify-content: center;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    background-color: #F3DFA2;
+    border-radius: 20px;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
 
-.dropdown {
-  position: relative;
-  display: inline-block;
-  justify-content: center;
+  .dropdown-content a:hover{
+    color: #ff3352;
+  }
+  
+ .dropdown:hover .dropdown-content {
+    display: block;
 }
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  min-width: 160px;
-  background-color: #F3DFA2;
-  border-radius: 20px;
-}
-
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-#cart {
-  font-size: 30px;
+  
+#cart{
+    font-size: 30px;
 }
 
 .column {
-  width: 25%;
-  height: auto;
-  padding: 10px 10px;
+    width: 33%;
+    height: auto;
+    padding: 10px 10px;
+  }
+  
+  .row {margin: 0 -5px;
+    justify-content: space-evenly;
 }
+  
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 20px 20px;
+    padding: 50%;
+    text-align: center;
+    background-size: cover;
+  }
 
-.row {
-  margin: 0 -5px;
-  justify-content: space-evenly;
-}
+  .card:hover{
+    border: solid #F3DFA2;
+  }
 
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  border-radius: 20px 20px;
-  border: #F3DFA2;
-  padding: 50%;
-  text-align: center;
-  background-size: cover;
-}
