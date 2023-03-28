@@ -25,9 +25,12 @@ h2{
 .navbar{
     position: relative;
     margin-top: 10px;
-
 }
 
+.nav-type{
+  display: flex;
+  justify-content: space-evenly;
+}
 
 ul {
   position: static; 
@@ -53,13 +56,8 @@ li a {
 }
 
 
-
 .active:hover {
   color: #fff;
-}
-
-.categories{
-    /* margin-left: 150px; */
 }
 
 
@@ -87,6 +85,10 @@ li a {
     text-decoration: none;
     display: block;
   }
+
+  .dropdown-content a:hover{
+    color: #ff3352;
+  }
   
  .dropdown:hover .dropdown-content {
     display: block;
@@ -109,8 +111,11 @@ li a {
   .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     border-radius: 20px 20px;
-    border: #F3DFA2;
     padding: 50%;
     text-align: center;
     background-size: cover;
+  }
+
+  .card:hover{
+    border: solid #F3DFA2;
   }
