@@ -1,6 +1,8 @@
 const sequelize = require('../../config/connection');
 const seedUsers = require('./users');
 const seedItems = require('./items');
+const seedCategories = require('./category');
+const seedItemCategory = require('./item_category');
 
 const seedingProcess = {
   sequelize_sync: async function(){
@@ -9,8 +11,14 @@ const seedingProcess = {
   seed_users: async function(){
     await seedUsers();
   },
+  seed_categories: async function(){
+    await seedCategories();
+  },
   seed_items: async function(){
     await seedItems();
+  },
+  seed_item_category: async function(){
+    await seedItemCategory();
   }
 }
 
