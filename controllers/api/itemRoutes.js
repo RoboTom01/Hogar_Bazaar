@@ -3,7 +3,7 @@ const { Item } = require('../../models');
 
 router.get('/', async (req, res) => {
     try {
-        const dbPostData = Item.findAll({})
+        const dbPostData = await Item.findAll({})
         res.status(200).json(dbPostData)
     } catch (err) {
         res.status(500).json(err)
@@ -12,11 +12,7 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
     try {
-        const dbPostData = Item.findbyPk({
-            where: {
-                id: req.params.id
-            }
-        })
+        const dbPostData = await Item.findByPk(req.params.id)
         if (!dbPostData) {
             res.status(404).json({ message: "No Post with that ID was found!" })
         }
