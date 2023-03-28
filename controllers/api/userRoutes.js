@@ -1,34 +1,11 @@
 const router = require('express').Router();
 const { User } = require('../../models');
+const { v4: uuidv4 } = require('uuid'); // import uuidv4 function from uuid package
 
 router.get('/', async (req, res) => {
   try {
     const userData = await User.findAll();
-    return res.json(userData)
-
-    // if (!userData) {
-    //   res
-    //     .status(400)
-    //     .json({ message: 'Incorrect email or password, please try again' });
-    //   return;
-    // }
-
-    // const validPassword = await userData.checkPassword(req.body.password);
-
-    // if (!validPassword) {
-    //   res
-    //     .status(400)
-    //     .json({ message: 'Incorrect email or password, please try again' });
-    //   return;
-    // }
-
-    // req.session.save(() => {
-    //   req.session.user_id = userData.id;
-    //   req.session.logged_in = true;
-
-    //   res.json({ user: userData, message: 'You are now logged in!' });
-    // });
-
+    return res.json(userData);
   } catch (err) {
     res.status(400).json(err);
   }
@@ -36,20 +13,20 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
   try {
-    console.log(req.body)
-    const dbUserData = await User.create({
+    const user = await User.create({
       username: req.body.username,
       email: req.body.email,
       password: req.body.password,
       phone: req.body.phone,
+      uuid: uuidv4() // generate and store a UUID for each user
     });
-
-    return res.json(dbUserData)
-    //   req.session.save(() => {
-    //     req.session.logged_in = true;
-
-    //     res.status(200).json(dbUserData);
-    //   });
+    req.session.save(() => {
+      req.session.userId = user.id;
+      req.session.username = user.username;
+      req.session.logged_in = true;
+      return res.json(user);
+    });
+    
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -63,6 +40,7 @@ router.post("/login", async (req, res) => {
         email: req.body.email,
       },
     });
+console.log(user);
     if (user === null) {
       res.status(400).json({ message: "Incorrect login credentials" });
       return;
@@ -72,11 +50,15 @@ router.post("/login", async (req, res) => {
       res.status(400).json({ message: "Incorrect login credentials" });
       return;
     }
+    useremail = req.body.email;
+    
     req.session.save(() => {
       req.session.userId = user.id;
       req.session.username = user.username;
       req.session.logged_in = true;
       res.status(200).json({ message: "You are now logged in" });
+      console.log(req.session);
+    console.log(req.session.cookie);
     });
   } catch (err) {
     res.status(500).json(err);
