@@ -20,6 +20,10 @@
               <div class="dropdown">
                 <li><a class="active categories">Account</a></li>
                 <div class="dropdown-content">
+                        <a href={{create-items.handlebars}}>Create Item</a>
+                        <a href="#">Link 2</a>
+                        <button class="logoutbtn categories"><a id="logout">Logout</a></button>
+                </div>
                   <a href="#">{{countdown}}</a>
                   <a href="#">Link 2</a>
                   <button class="logoutbtn categories"><a id="logout">Logout</a></button>
@@ -37,11 +41,23 @@
 <div class="row">
   {{#each categories as |category|}}
   <div class="column">
+    <h2>Outdoor</h2>
+    <div class="card" style="background-image: url(https://cdn.mos.cms.futurecdn.net/9JUMy6YeLepGTZf9Tx9vSV.jpg);"></div>
+  </div>
+  <div class="column">
+    <h2>Antique</h2>
+    <a href="items-page.handlebars"><div class="card"  style="background-image: url(https://www.honestlymodern.com/wp-content/uploads/2017/03/Great-Way-to-Include-Antiques-into-Any-Decor-700.jpg);"></div></a>
+  </div>
+  <div class="column">
+    <h2>Lighting</h2>
+    <div class="card" style="background-image: url(https://ae01.alicdn.com/kf/Sdd5f356d00ad42efba48e18b7948ea6fN/Nordic-Ceiling-Chandelier-E27-Led-Minimalist-Pendant-Lights-220V-Hanging-Lamp-For-kitchen-Dining-Living-Room.jpg_Q90.jpg_.webp);"></div>
+
     <h2>{{category.name}}</h2>
     <a  href="category/{{category.id}}">
     <div class="card" style="background-image: url({{category.thumbnail}});">
     </div>
     </a>
+
   </div>
   {{/each}}
 </div>

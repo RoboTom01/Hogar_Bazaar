@@ -1,6 +1,8 @@
+
 const router = require('express').Router();
 const withAuth = require('../utils/auth');
 const { Category } = require('../models');
+
 
 router.get("/", withAuth, async (req, res) => {
   try {
@@ -19,7 +21,8 @@ router.get("/", withAuth, async (req, res) => {
 router.get("/postItem", withAuth, async (req, res) => {
   try {
     res.render("create-items", {
-      logged_in: req.session.logged_in
+      logged_in: req.session.logged_in,
+      style: "",
     });
   } catch (err) {
     res.status(500).json(err);
