@@ -5,14 +5,9 @@ const { Item } = require('../../models');
 
 router.get('/', async (req, res) => {
     try {
-        console.log(req.session.id);
-        console.log(req.session.userId);
-        console.log(req.session.username);
-        console.log(req.session);
         const dbPostData = await Item.findAll({})
         res.status(200).json(dbPostData)
     } catch (err) {
-        console.log(err);
         res.status(500).json(err)
     }
 })
@@ -31,16 +26,17 @@ router.get("/:id", async (req, res) => {
 
 router.post("/", async (req, res) => {
   try {
-    console.log(req.body);
     const dbPostData = await Item.create({
       name: req.body.name,
       description: req.body.description,
       price: req.body.price,
+      username: req.session.username,
+      email: req.session.email,
+      phone: req.session.phone,
     });
 
     return res.json(dbPostData);
   } catch (err) {
-    console.log(err);
     res.status(500).json(err);
   }
 });
