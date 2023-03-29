@@ -3,10 +3,12 @@ const { Item } = require('../../models');
 const item_data = [
     {
         "id": 1,
-        "name": "Lazy Boy",
-        "description": "A beautiful lazy boy chair",
+        "name": "La-Z-Boy",
+        "description": "A beautiful La-Z-Boy chair",
         "price": 100.00,
-        "picture_url": "https://content.la-z-boy.com/Images/product/category/white/large/010582.jpg"
+        "picture_url": "https://content.la-z-boy.com/Images/product/category/white/large/010582.jpg",
+        "sale_price": 50.00,
+        "sale_end": "2023-03-30"
     },
     {
         "id": 2,
@@ -32,7 +34,7 @@ const item_data = [
     {
         "id": 5,
         "name": "Hammock",
-        "description": "A blue hammock",
+        "description": "Hammock and pillow set.",
         "price": 125.99,
         "picture_url": "https://secure.img1-cg.wfcdn.com/im/51075602/resize-h600-w600%5Ecompr-r85/1494/149433696/Chair+Hammock.jpg"
 
@@ -40,7 +42,7 @@ const item_data = [
     {
         "id": 6,
         "name": "Lamp",
-        "description": "An 1890s lamp",
+        "description": "A 1890's lamp",
         "price": 75.99,
         "picture_url": "https://ctlighting.com/wp-content/uploads/2021/04/RLG60530_1-1.jpg"
     }
