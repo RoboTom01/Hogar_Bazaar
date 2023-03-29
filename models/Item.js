@@ -5,6 +5,7 @@ class Item extends Model {}
 
 Item.init(
     {
+        
         id: {
             type: DataTypes.INTEGER,
             allowNull: false,
@@ -39,6 +40,18 @@ Item.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
+        username: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        email: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        phone: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        }
     },
     {
         sequelize,

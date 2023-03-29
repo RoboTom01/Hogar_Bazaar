@@ -24,11 +24,12 @@ router.post('/', async (req, res) => {
       req.session.userId = user.id;
       req.session.username = user.username;
       req.session.logged_in = true;
+      req.session.email = user.email;
+      req.session.phone = user.phone;
       return res.json(user);
     });
     
   } catch (err) {
-    console.log(err);
     res.status(500).json(err);
   }
 });
@@ -51,14 +52,13 @@ console.log(user);
       return;
     }
     useremail = req.body.email;
-    
     req.session.save(() => {
       req.session.userId = user.id;
       req.session.username = user.username;
       req.session.logged_in = true;
+      req.session.email = user.email;
+      req.session.phone = user.email;
       res.status(200).json({ message: "You are now logged in" });
-      console.log(req.session);
-    console.log(req.session.cookie);
     });
   } catch (err) {
     res.status(500).json(err);
@@ -76,3 +76,4 @@ router.post('/logout', (req, res) => {
 });
 
 module.exports = router;
+
