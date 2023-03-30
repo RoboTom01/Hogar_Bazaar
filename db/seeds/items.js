@@ -9,7 +9,9 @@ const item_data = [
         "picture_url": "https://content.la-z-boy.com/Images/product/category/white/large/010582.jpg",
         "username": "Admin",
         "email": "Support@Hogar.com",
-        "phone": "8010001111"
+        "phone": "8010001111",
+        "sale_price": 49.99,
+        "sale_end": "2023-04-25"
     },
     {
         "id": 2,
