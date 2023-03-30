@@ -5,13 +5,11 @@ class Item extends Model {}
 
 Item.init(
     {
-<<<<<<< HEAD
+
         // userid: {
             
         // },
-=======
-        
->>>>>>> d0cca633a283a44c2fed35693f9e30bf527aaa06
+
         id: {
             type: DataTypes.INTEGER,
             allowNull: false,
