@@ -1,13 +1,13 @@
-
-const router = require('express').Router();
-const withAuth = require('../utils/auth');
-const { Category } = require('../models');
-
+const router = require("express").Router();
+const withAuth = require("../utils/auth");
+const { Category } = require("../models");
 
 router.get("/", withAuth, async (req, res) => {
   try {
     const categoryData = await Category.findAll();
-    const categories = categoryData.map((itemCategory) => itemCategory.get({ plain: true }));
+    const categories = categoryData.map((itemCategory) =>
+      itemCategory.get({ plain: true })
+    );
     res.render("homepage", {
       logged_in: req.session.logged_in,
       categories: categories,
@@ -22,7 +22,17 @@ router.get("/postItem", withAuth, async (req, res) => {
   try {
     res.render("create-items", {
       logged_in: req.session.logged_in,
-      style: "",
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get("/create-items", withAuth, async (req, res) => {
+  try {
+    res.render("create-items", {
+      logged_in: req.session.logged_in,
+      style: "homepage.css",
     });
   } catch (err) {
     res.status(500).json(err);
