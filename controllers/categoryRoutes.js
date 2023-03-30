@@ -4,7 +4,7 @@ const withAuth = require('../utils/auth');
 const { Item, Category } = require('../models');
 
 router.get("/:id", withAuth, async (req, res) => {
-    const categoryData = await Category.findByPk(req.params.id);
+    const categoryData = await Category.findByPk("1");
     const category = categoryData.get({ plain: true });
 
     const itemData = await Item.findAll({
@@ -58,6 +58,7 @@ router.get("/:id", withAuth, async (req, res) => {
         style: "homepage.css",
     });
 });
+
 
 
 module.exports = router;
