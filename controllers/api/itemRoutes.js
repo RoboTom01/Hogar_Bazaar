@@ -2,7 +2,6 @@ const router = require('express').Router();
 const { Store } = require('express-session');
 const { Item } = require('../../models');
 
-
 router.get('/', async (req, res) => {
     try {
         const dbPostData = await Item.findAll({})
@@ -30,11 +29,12 @@ router.post("/", async (req, res) => {
       name: req.body.name,
       description: req.body.description,
       price: req.body.price,
+      picture_url: req.body.picture,
       username: req.session.username,
       email: req.session.email,
       phone: req.session.phone,
     });
-
+    console.log(dbPostData);
     return res.json(dbPostData);
   } catch (err) {
     res.status(500).json(err);
