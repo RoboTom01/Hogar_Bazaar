@@ -17,7 +17,7 @@ Item.init(
             allowNull: false,
         },
         description: {
-            type: DataTypes.TEXT,
+            type: DataTypes.STRING,
         },
         price: {
             type: DataTypes.FLOAT,
@@ -39,6 +39,7 @@ Item.init(
         picture_url: {
             type: DataTypes.STRING,
             allowNull: false,
+            defaultValue: "google.com",
         },
         username: {
             type: DataTypes.STRING,
