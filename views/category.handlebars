@@ -1,16 +1,54 @@
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
-<div class="row">
-    <div class="column text-center">
-      <h1>{{category.name}}</h1>
+
+<div class="navbar">
+  <div class="html-container">
+    <div class="html-section">
+      <div class="html-project">
+        <div class="navigation">
+          <nav>
+            <ul class="nav-type">
+              <li><a href="/" class="active categories">Home</a></li>
+              <div class="dropdown">
+                <li><a class="active dropbtn">Categories</a></li>
+                <div class="dropdown-content">
+                  {{#each categories as |category|}}
+                  <a href="/category/{{category.id}}">{{category.name}}</a>
+
+                  {{/each}}
+                </div>
+              </div>
+
+              <div class="dropdown">
+                <li><a class="active categories">Account</a></li>
+                <div class="dropdown-content">
+                        <a href={{create-items.handlebars}}>Create Item</a>
+                        <button class="logoutbtn categories"><a id="logout">Logout</a></button>
+              </div>
+            </ul>
+          </nav>
+        </div>
+      </div>
     </div>
+  </div>
+</div>
+<div class="row">
+  <div class="column text-center">
+    <h1>{{category.name}}</h1>
+  </div>
 </div>
 
 <div class="row">
   {{#each items as |item|}}
-  <div class="column">
-    <h2>{{item.name}}</h2>
+  <div class="column text-center">
+    <h2>{{item.name}} </h2>
     <div class="card" style="background-image: url({{item.picture_url}});"></div>
+    <span>{{item.description}}!</span>
+    {{#if item.has_sale}}
+      <h4 style="margin-bottom: -15px;"><strike>${{item.price}}</strike></h4>
+      <h2>On sale <b>${{item.sale_price}}</b> for only {{item.sale_remaining}}!</h2>
+    {{else}}
     <h2>${{item.price}}</h2>
+    {{/if}}
   </div>
   {{/each}}
 </div>
