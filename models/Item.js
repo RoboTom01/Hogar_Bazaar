@@ -39,7 +39,7 @@ Item.init(
         picture_url: {
             type: DataTypes.STRING,
             allowNull: false,
-            defaultValue: "google.com",
+            defaultValue: "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png",
         },
         username: {
             type: DataTypes.STRING,

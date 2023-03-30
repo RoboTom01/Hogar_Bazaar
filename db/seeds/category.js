@@ -30,7 +30,13 @@ const category_data = [
         "id": 6,
         "name": "Lighting",
         "thumbnail": "https://ae01.alicdn.com/kf/Sdd5f356d00ad42efba48e18b7948ea6fN/Nordic-Ceiling-Chandelier-E27-Led-Minimalist-Pendant-Lights-220V-Hanging-Lamp-For-kitchen-Dining-Living-Room.jpg_Q90.jpg_.webp"
+    },
+    {
+        "id": 7,
+        "name": "All Listings",
+        "thumbnail": "https://www.looksgud.in/images/home/view-all-products.png"
     }
+
 ]
 
 const seedCategories = () => Category.bulkCreate(category_data);

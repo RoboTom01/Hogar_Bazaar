@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { Store } = require('express-session');
-const { Item } = require('../../models');
+const { Item, Category, ItemCategory } = require('../../models');
 
 router.get('/', async (req, res) => {
     try {
@@ -25,21 +25,32 @@ router.get("/:id", async (req, res) => {
 
 router.post("/", async (req, res) => {
   try {
-    const dbPostData = await Item.create({
+    const newItem = await Item.create({
       name: req.body.name,
       description: req.body.description,
       price: req.body.price,
-      picture_url: req.body.picture,
+      picture_url: req.body.picture_url,
       username: req.session.username,
       email: req.session.email,
       phone: req.session.phone,
     });
-    console.log(dbPostData);
-    return res.json(dbPostData);
+
+    
+    const categoryId = "7";
+
+    // Associate the item with the category
+    const newItemCategory = await ItemCategory.create({
+      item_id: newItem.id,
+      category_id: categoryId
+    });
+
+    console.log(newItem);
+    return res.json(newItem);
   } catch (err) {
     res.status(500).json(err);
   }
 });
+
 
 router.put("/:id", async (req, res) => {
   try {
