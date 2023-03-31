@@ -41,11 +41,8 @@ const init = async () => {
 
     // set to true for seeding
 
-  // sequelize.sync({ force: false }).then(() => {
-    app.listen(process.env.PORT, () => {
-      console.log("Now listening")
-    // )
-    ;
+  sequelize.sync({ force: true }).then(() => {
+    app.listen(process.env.PORT || 3001, () => console.log("Now listening"));
   });
 };
 
