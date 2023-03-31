@@ -9,15 +9,10 @@ const sequelize = require("./config/connection");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
 const init = async () => {
-<<<<<<< HEAD
 
-
-  // const db_handler = new DatabaseHandler()
-=======
-  // const db_handler = new DatabaseHandler();
->>>>>>> de4f1c36cd66b7a3ee17a3f81743fcdd37f2f1c3
-  // await db_handler.init();
-  // db_handler.seed_db();
+  const db_handler = new DatabaseHandler();
+  await db_handler.init();
+  db_handler.seed_db();
 
   //UNCOMMENT THIS STUFF TO SEED THE DATABASE ALSO SET LINE 40 TO TRUE AND THEN RUN USING NODE SERVER.JS
 
@@ -44,7 +39,7 @@ const init = async () => {
   app.use(routes);
 
     // set to true for seeding
-  sequelize.sync({ force: false }).then(() => {
+  sequelize.sync({ force: true }).then(() => {
     app.listen(process.env.PORT || 3001, () => console.log("Now listening"));
   });
 };
