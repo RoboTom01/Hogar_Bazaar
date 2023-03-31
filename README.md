@@ -8,7 +8,7 @@ Users of Hogar Bazaar can browse, purchase, and sell a wide range of home goods,
 
 For sellers, the platform provides a simple way to list items for sale, with the ability to add photos, descriptions and pricing information.
 
-[Deployed URL]()
+[Deployed URL](https://hogar-bazaar.herokuapp.com/)
 
 ## Installation
 To install and run Hogar Bazaar, follow these steps:
