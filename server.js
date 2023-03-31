@@ -10,9 +10,9 @@ const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
 const init = async () => {
 
-//   const db_handler = new DatabaseHandler();
-//   await db_handler.init();
-//   db_handler.seed_db();
+  const db_handler = new DatabaseHandler();
+  await db_handler.init();
+  db_handler.seed_db();
 
 
   //UNCOMMENT THIS STUFF TO SEED THE DATABASE ALSO SET LINE 40 TO TRUE AND THEN RUN USING NODE SERVER.JS
