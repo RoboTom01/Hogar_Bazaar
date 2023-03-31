@@ -5,7 +5,11 @@ class Item extends Model {}
 
 Item.init(
     {
-        
+
+        // userid: {
+            
+        // },
+
         id: {
             type: DataTypes.INTEGER,
             allowNull: false,
